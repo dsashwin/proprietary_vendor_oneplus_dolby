@@ -6,6 +6,7 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/oneplus/dolby
 
 PRODUCT_COPY_FILES += \
+    vendor/oneplus/dolby/proprietary/odm/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_ODM)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
     vendor/oneplus/dolby/proprietary/odm/etc/init/vendor.dolby_sp.hardware.dmssp@2.0-service.rc:$(TARGET_COPY_OUT_ODM)/etc/init/vendor.dolby_sp.hardware.dmssp@2.0-service.rc \
     vendor/oneplus/dolby/proprietary/odm/etc/init/vendor.dolby_v3_6.hardware.dms360@2.0-service.rc:$(TARGET_COPY_OUT_ODM)/etc/init/vendor.dolby_v3_6.hardware.dms360@2.0-service.rc
 
@@ -17,6 +18,13 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_ddpdec \
     libhwdap_v3_6 \
     libswdap_v3_6 \
+    libcodec2_hidl@1.0_sp \
+    libcodec2_hidl_plugin_sp \
+    libcodec2_soft_ac4dec_sp \
+    libcodec2_soft_common_sp \
+    libcodec2_soft_ddpdec_sp \
+    libcodec2_store_dolby_sp \
+    libcodec2_vndk_sp \
     libdapparamstorage_sp \
     libdeccfg_sp \
     libdlbdsservice_sp \
@@ -27,19 +35,5 @@ PRODUCT_PACKAGES += \
     manifest_dax_dolby_v3_6.xml \
     vendor.dolby.hardware.dms.xml \
     vendor.dolby_sp.hardware.dmssp@2.0-service \
+    vendor.dolby_sp.media.c2@1.0-service \
     vendor.dolby_v3_6.hardware.dms360@2.0-service
-
-ifeq ($(DOLBY_USE_C2),true)
-PRODUCT_COPY_FILES += \
-    vendor/oneplus/dolby/proprietary/odm/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_ODM)/etc/init/vendor.dolby.media.c2@1.0-service.rc
-
-PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.0_sp \
-    libcodec2_hidl_plugin_sp \
-    libcodec2_soft_ac4dec_sp \
-    libcodec2_soft_common_sp \
-    libcodec2_soft_ddpdec_sp \
-    libcodec2_store_dolby_sp \
-    libcodec2_vndk_sp \
-    vendor.dolby_sp.media.c2@1.0-service
-endif
